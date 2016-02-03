@@ -44,13 +44,19 @@ Route::group(['middleware' => ['web']], function () {
             'name' => 'required|max:255',
          ]);
          
-         if ($validator -> fails()){
+         if ($validator->fails()){
              return redirect('/')
                 ->withInput()
                 ->withErrors($validator);
          }
          
          //create the task
+         
+         $task = new Task;
+         $task->name = $request->name;
+         $task->save();
+         
+         return redirect('/');
     });
     
     
