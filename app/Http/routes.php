@@ -68,6 +68,8 @@ Route::group(['middleware' => ['web']], function () {
     
     //Delete a task
     Route::delete('/task/{task}', function (Task $task){
+        $task->delete();
         
+        return redirect('/');
     });
 });
