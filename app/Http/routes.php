@@ -1,5 +1,10 @@
 <?php
 
+use App\Task;
+use Illuminate\Http\Request;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -11,9 +16,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +31,20 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    
+    //Retrieve all tasks
+    Route::get('/', function () {
+        return view('tasks');
+    });
+    
+    
+    //Add task
+    Route::post('/task', function (Request $request){
+        
+    });
+    
+    //Delete a task
+    Route::delete('/task/{task}', function (Task $task){
+        
+    });
 });
